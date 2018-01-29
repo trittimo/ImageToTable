@@ -4,12 +4,12 @@ import os
 
 def convert(image, outpath):
     with open(outpath, "w") as outfile:
-        outfile.write("<html><body><table name=\"image\"><tr>")
+        outfile.write("<table name=\"image\">")
 
         pixels = image.getdata()
         width = image.width
         index = 1
-        needswrite = False
+        needswrite = True
         for color in pixels:
             if needswrite:
                 outfile.write("<tr style=\"height: 10px; width: 10px;\">")
@@ -19,7 +19,7 @@ def convert(image, outpath):
                 outfile.write("</tr>")
                 needswrite = True
             index += 1
-        outfile.write("</table></body></html>")
+        outfile.write("</table>")
 
 
 if __name__ == '__main__':
